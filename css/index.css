@@ -1,3 +1,11 @@
 /* CSS Document */
 
-body { text-align: center; font-family: 'Lato', sans-serif; }
+.columns {
+	text-align: center;
+	font-family: 'Lato', sans-serif;
+/*	column-count: 3;*/
+}
+
+.columns.col {
+
+}
