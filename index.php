@@ -9,94 +9,116 @@
 		<div class="columns col">
 			<h2>Week one</h2>
 			
-			<a href="../week_one/hello_world.php">Hello World!</a>
+			<a href="week_one/hello_world.php">Hello World!</a>
 			<br>
-			<a href="../week_one/calculations.php">Calculations</a>
+			<a href="week_one/calculations.php">Calculations</a>
 			<br>
-			<a href="../week_one/local_global_variables.php">Local &amp Global variables</a>
+			<a href="week_one/local_global_variables.php">Local &amp Global variables</a>
 			<br>
 			<h3>Calculations</h3>
-			<a href="../week_one/calculator.php">Calculator</a>
+			<a href="week_one/calculator.php">Calculator</a>
 			<br>
-			<a href="../week_one/advanced_calculator.php">Advanced calculator*</a>
+			<a href="week_one/advanced_calculator.php">Advanced calculator*</a>
 			<br>
-			<a href="../week_one/standard_deviation.php">Standard deviation</a>
+			<a href="week_one/standard_deviation.php">Standard deviation</a>
 			<br>
 		</div>
 		<div class="columns col">
 			<h2>Week two</h2>
 			
 			<h3>Sequences</h3>
-			<a href="../week_two/average_values.php">Average values</a>
+			<a href="week_two/average_values.php">Average values</a>
 			<br>
-			<a href="../week_two/dog_years.php">Dog years</a>
+			<a href="week_two/dog_years.php">Dog years</a>
 			<br>
-			<a href="../week_two/celcius_fahrenheit.php">Celcius to Fahrenheit</a>
+			<a href="week_two/celcius_fahrenheit.php">Celcius to Fahrenheit</a>
 			<br>
 			<h3>Statements</h3>
-			<a href="../week_two/types_statements.php">Types of statements</a>
+			<a href="week_two/types_statements.php">Types of statements</a>
 			<br>
-			<a href="../week_two/can_vote.php">Can you vote?</a>
+			<a href="week_two/can_vote.php">Can you vote?</a>
 			<br>
-			<a href="../week_two/student_grade.php">Grade calculator</a>
+			<a href="week_two/student_grade.php">Grade calculator</a>
 			<br>
-			<a href="../week_two/day_of_week.php">Day of the week</a>
+			<a href="week_two/day_of_week.php">Day of the week</a>
 			<br>
 			<h3>Loops</h3>
-			<a href="../week_two/loops.php">Loops</a>
+			<a href="week_two/loops.php">Loops</a>
 			<br>
-			<a href="../week_two/times_table.php">Times table</a>
+			<a href="week_two/times_table.php">Times table</a>
 			<br>
-			<a href="../week_two/rolling_dice.php">Rolling dice</a>
+			<a href="week_two/rolling_dice.php">Rolling dice</a>
 			<br>
-			<a href="../week_two/guess_number.php">Guess the number game*</a>
+			<a href="week_two/guess_number.php">Guess the number game*</a>
 			<br>
 		</div>
 		<div class="columns col">
 			<h2>Week three</h2>
 			<h3>Data types</h3>
-			<a href="../week_three/arrays.php">Arrays</a>
+			<a href="week_three/arrays.php">Arrays</a>
 			<br>
-			<a href="../week_three/queues.php">Queues</a>
+			<a href="week_three/queues.php">Queues</a>
 			<h3>Algorithms</h3>
-			<a href="../week_three/sorting_algorithms.php">Sorting algorithms</a>
+			<a href="week_three/sorting_algorithms.php">Sorting algorithms</a>
 			<br>
-			<a href="../week_three/searches.php">Search algorithms</a>
+			<a href="week_three/searches.php">Search algorithms</a>
 			<br>
 			
 		</div>
 		<div class="columns col">
 			<h2>Week four</h2>
-			<a href="../week_three/searches.php">Search algorithms continued</a>
+			<a href="week_three/searches.php">Search algorithms continued</a>
 			<br>
-			<a href="../week_four/sorting_continued.php">Sorting continued</a>
+			<a href="week_four/sorting_continued.php">Sorting continued</a>
 			<br>
-			<a href="../week_four/encryption_ciphers.php">Encryption - ciphers</a>
+			<a href="week_four/encryption_ciphers.php">Encryption - ciphers</a>
 			<br>
 		</div>
 		<div class="columns col">
 			<h2>Week five</h2>
-			<a href="../week_five/classes.php">Classes</a>
+			<a href="week_five/classes.php">Classes</a>
 			<br>
-			<a href="../week_five/access_modifiers.php">Access modifiers</a>
+			<a href="week_five/access_modifiers.php">Access modifiers</a>
 			<br>
-			<a href="../week_five/inheritance.php">Inheritance</a>
+			<a href="week_five/inheritance.php">Inheritance</a>
 			<br>
-			<a href="../week_five/classes_task.php">Classes task</a>
+			<a href="week_five/classes_task.php">Classes task</a>
 			<br>
-			<a href="../week_five/constants.php">Constants</a>
+			<a href="week_five/constants.php">Constants</a>
 			<br>
-			<a href="../week_five/abstract_classes.php">Abstract classes</a>
+			<a href="week_five/abstract_classes.php">Abstract classes</a>
 			<br>
-			<a href="../week_five/interfaces_polymorphism.php">Interfaces/polymorphism</a>
+			<a href="week_five/interfaces_polymorphism.php">Interfaces/polymorphism</a>
 			<br>
-			<a href="../week_five/static_methods_properties.php">Static methods &amp properties</a>
+			<a href="week_five/static_methods_properties.php">Static methods &amp properties</a>
 			<br>
-			<a href="../week_five/superclass_task.php">Superclass task</a>
+			<a href="week_five/superclass_task.php">Superclass task</a>
 			<br>
-			<a href="../week_five/interface_task.php">Interface task</a>
+			<a href="week_five/interface_task.php">Interface task</a>
 			<br>
+        </div>    
+        <div class="columns col">
+            <h2>Week six</h2>
+            <a href="week_six/pseudocode.php">Pseudocode</a>
+			<br>
+            <a href="week_six/prime_numbers.php">Programming task - Prime numbers</a>
+			<br>
+            <a href="week_six/database_connection.php">Database connection</a>
+			<br>
+            <a href="week_six/select_queries.php">MySQL - SELECT</a>
+			<br>
+            <a href="week_six/select_where_queries.php">MySQL - SELECT WHERE</a>
+			<br>
+            <a href="week_six/select_order_queries.php">MySQL - SELECT ORDER</a>
+			<br>
+            <a href="week_six/update_queries.php">MySQL - UPDATE</a>
+			<br>
+            <a href="week_six/deletion_queries.php">MySQL - DELETE</a>
+			<br>
+            <a href="week_six/movie_db_application/index.php">MySQL - DELETE</a>
+			<br>
+            
+        </div>
 			
-	</div>
 </body>
 </html>
