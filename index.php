@@ -115,10 +115,27 @@
 			<br>
             <a href="week_six/deletion_queries.php">MySQL - DELETE</a>
 			<br>
-            <a href="week_six/movie_db_application/index.php">MySQL - DELETE</a>
-			<br>
-            
+        </div> 
+        <div class="columns col">
+            <h2>Week seven</h2>
+            <a href="week_seven/check_digit.php">Check digit task</a>
+            <br>
+			<a href="week_seven/database_joins.php">MySQL - JOIN</a>
+            <br>
+            <a href="week_seven/user_input_mysql.php">MySQL - Inserting data with UI</a>
+            <br>
+            <a href="week_seven/user_search_mysql.php">MySQL - Searching data with UI</a>
+            <br>
+            <a href="week_seven/user_update_mysql.php">MySQL - Updating data with UI</a>
+            <br>
+            <a href="week_seven/user_delete_mysql.php">MySQL - Deleting data with UI</a>
+            <br>
+        
         </div>
-			
+        <div class="column">
+            <h2>Projects</h2>
+            <a href="projects/movie_db_application/index.php">Movie application</a>
+			<br>
+        </div>
 </body>
 </html>
