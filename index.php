@@ -130,13 +130,18 @@
             <br>
             <a href="week_seven/user_delete_mysql.php">MySQL - Deleting data with UI</a>
             <br>
-        
         </div>
         <div class="columns col">
             <h2>Week eight</h2>
             <a href="week_eight/positive_negative.php">Positive or negative number</a>
             <br>
             <a href="week_eight/mysql_practice.php">MySQL - Query practice</a>
+        </div>
+        <div class="columns col">
+            <h2>Week nine</h2>
+            <a href="week_nine/find_name.php">Find player name</a>
+            <br>
+            <a href="week_nine/login.php">Login check</a>
             <br>
             
         </div>

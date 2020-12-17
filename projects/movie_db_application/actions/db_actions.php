@@ -8,6 +8,17 @@ switch($_GET['action']) {
         insert_user($connection, $_GET['name'],$_GET['address']);
         page_redirect('view_users');
         break;
+    case 'login' :
+        //BROKEN - FIX IT
+        $redirect = check_login($connection, $_GET['name'],$_GET['pass']);
+        if($redirect == 'failed' && 1 == 0) {
+            page_redirect('failed_login');
+        } else if(!$redirect && 1 == 0) {
+            page_redirect('');
+        } else {
+            page_redirect('home');
+        }
+        break;
         
         
 }

@@ -41,6 +41,30 @@ function get_users($connection, $search = '') {
     }
 }
 
+function check_login($connection, $user, $pass) {
+    $sql_to_run = "SELECT username, password FROM customers";
+    $result = $connection->query($sql_to_run);
+
+    $row = $result->fetch_assoc();
+    if($row->username == $user && $row->password == $pass) {
+        return('success');
+    } else {
+        return('failed');
+    }
+}
+
+function reset_login($connection, $user, $pass) {
+    $sql_to_run = "INSERT INTO customers (username, password) VALUES ('$user','$pass')";
+    $result = $connection->query($sql_to_run);
+
+    $row = $result->fetch_assoc();
+    if($row['username'] == $user && $row['password'] == $pass) {
+        return('success');
+    } else {
+        return('failed');
+    }
+}
+
 function get_movies($connection, $search = '', $genre = '', $sort_by = '') {
     if($genre) $and = 'AND genres.genre_id = '.$genre;
     else $and = '';

@@ -5,7 +5,7 @@
 	<title>Movies database</title>
     <?php include_once('model/db_functions.php'); ?>
     <?php include_once('model/view_functions.php'); ?>
-    
+    <link rel="stylesheet" type="text/css" href="assets/css/foundation.css">
 </head>
 <body>
 	<?php 
@@ -13,8 +13,44 @@
         $content = '<h1>Movie database</h1>';
             
         if($_GET['view'] == '') {
-            $content .= '<h2>Home</h2>';
-            $content .= '<a class="button" href="index.php?view=view_users">View users</a><br>
+            $content .= '<h2>Login page</h2>
+                        <form action="actions/db_actions.php">
+                            <input type="hidden" id="action" name="action" value="login">
+                            <p>
+                                Username:
+                                <input type="text" id="user" name="user"/>
+                            </p>
+                            <p>
+                                Password:
+                                <input type="password" id="pass" name="pass"/>
+                            </p>
+                            <p>
+                                <input type="submit" id="submit" value="Login" class="button">
+                            </p>
+                        </form>
+                        <a class="button" href="index.php?view=reset_password">Reset password</a>
+                        ';
+        } else if($_GET['view'] == 'reset_password') {
+            $content .= '<h2>Reset password</h2>
+                        <form action="actions/db_actions.php">
+                            <input type="hidden" id="action" name="action" value="reset_password">
+                            <p>
+                                Username:
+                                <input type="text" id="user" name="user"/>
+                            </p>
+                            <p>
+                                Password:
+                                <input type="password" id="pass" name="pass"/>
+                            </p>
+                            <p>
+                                <input type="submit" id="submit" value="Reset & login" class="button">
+                            </p>
+                        </form>
+                        <a class="button">Reset password</a>
+                        ';
+        } else if($_GET['view'] == 'home') {
+            $content .= '<h2>Home</h2>
+                         <a class="button" href="index.php?view=view_users">View users</a><br>
                          <a class="button" href="view/movies.php">View movies</a>';
         } else if($_GET['view'] == 'view_users') {
             $content .= '<h2>Users</h2>
