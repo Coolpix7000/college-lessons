@@ -41,11 +41,22 @@ function get_users($connection, $search = '') {
     }
 }
 
-function get_movies($connection, $search = '') {
-    $sql_to_run = "SELECT movies.*, genre, format, file_type FROM movies 
+function get_movies($connection, $search = '', $genre = '', $sort_by = '') {
+    if($genre) $and = 'AND genres.genre_id = '.$genre;
+    else $and = '';
+    
+    if($sort_by == 'downloads') $order = 'ORDER BY total_downloads DESC';
+    else $order = '';
+    
+    $sql_to_run = "SELECT movies.*, genre, format, file_type, qry_downloads.count_downloads AS total_downloads FROM movies 
                    LEFT JOIN genres ON (genres.genre_id = movies.genre_id)
                    LEFT JOIN video_formats ON (video_formats.type_id = movies.type_id)
-                   WHERE title LIKE '%$search%'";
+                   LEFT JOIN (
+                        SELECT downloads.*, COUNT(id) AS count_downloads FROM downloads 
+                   ) AS qry_downloads ON (qry_downloads.movie_id = movies.id)
+                   WHERE title LIKE '%$search%'
+                   $and
+                   $order";
     $result = $connection->query($sql_to_run);
     
     $movies_array = array();
@@ -57,13 +68,51 @@ function get_movies($connection, $search = '') {
                  'title' => $row["title"],
                  'genre' => $row["genre"],
                  'format' => $row["format"],
-                 'file_type' => $row["file_type"]
+                 'file_type' => $row["file_type"],
+                 'total_downloads' => $row["total_downloads"]
              );
         }
         return $movies_array;
-
     } else {
        return(false);
+    }
+}
+function get_movie($connection, $id) {
+    $sql_to_run = "SELECT movies.*, genre, format, file_type FROM movies 
+                   LEFT JOIN genres ON (genres.genre_id = movies.genre_id)
+                   LEFT JOIN video_formats ON (video_formats.type_id = movies.type_id)
+                   WHERE movies.id = $id";
+    $result = $connection->query($sql_to_run);
+    
+    
+    if($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $movie = array(
+            'id' => $row["id"],
+            'title' => $row["title"],
+            'genre' => $row["genre"],
+            'format' => $row["format"],
+            'file_type' => $row["file_type"]
+        );
+        return $movie;
+    } else {
+        return false;
+    }
+}
+
+function get_genres($connection) {
+    $sql_to_run = "SELECT * FROM genres";
+    $result = $connection->query($sql_to_run);
+    
+    $genres_array = array();
+    if($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+             $genres_array[] = (object) array(
+                 'id' => $row["genre_id"],
+                 'genre' => $row["genre"],
+             );
+        }
+        return $genres_array;
     }
 }
 

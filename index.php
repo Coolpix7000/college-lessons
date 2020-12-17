@@ -132,6 +132,15 @@
             <br>
         
         </div>
+        <div class="columns col">
+            <h2>Week eight</h2>
+            <a href="week_eight/positive_negative.php">Positive or negative number</a>
+            <br>
+            <a href="week_eight/mysql_practice.php">MySQL - Query practice</a>
+            <br>
+            
+        </div>
+        
         <div class="column">
             <h2>Projects</h2>
             <a href="projects/movie_db_application/index.php">Movie application</a>

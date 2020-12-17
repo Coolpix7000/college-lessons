@@ -15,8 +15,7 @@
         if($_GET['view'] == '') {
             $content .= '<h2>Home</h2>';
             $content .= '<a class="button" href="index.php?view=view_users">View users</a><br>
-                         <a class="button" href="index.php?view=view_movies">View movies</a>';
-        // View pages ->
+                         <a class="button" href="view/movies.php">View movies</a>';
         } else if($_GET['view'] == 'view_users') {
             $content .= '<h2>Users</h2>
                 <form id="search_users" method="post" action="?view=view_users">
@@ -29,9 +28,9 @@
                 // Create table
                  $content .= '<table border="1">
                                 <tr>   
-                                    <td>User ID</td>
-                                    <td>Name</td>
-                                    <td>Address</td>
+                                    <th>User ID</th>
+                                    <th>Name</th>
+                                    <th>Address</th>
                                 </tr>
                              ';
                 foreach($users as $user) {
@@ -48,43 +47,6 @@
            
             $content .= '<a class="button" href="index.php?view=users_add">Add user</a><br>
                          <a class="button" href="index.php?view=users_remove">Remove user</a>';
-            $content .= home_button();
-            
-        } else if($_GET['view'] == 'view_movies') {
-            $content .= '<h2>Movies</h2>
-                <form id="search_movies" method="post" action="?view=view_movies">
-                    Name: <input type="text" id="search" name="search" placeholder="Search name">
-                    <input type="submit" value="Search">
-                </form>
-                <br>';
-            $movies = get_movies($connection, $_POST['search']);
-            if($movies) {
-                // Create table
-                 $content .= '<table border="1">
-                                <tr>   
-                                    <td>Movie ID</td>
-                                    <td>Title</td>
-                                    <td>Genre</td>
-                                    <td>File type</td>
-                                    <td>Format</td>
-                                </tr>
-                             ';
-                foreach($movies as $movie) {
-                    $content .= '<tr>
-                                    <td>'.$movie->id.'</td>
-                                    <td>'.$movie->title.'</td>
-                                    <td>'.$movie->genre.'</td>
-                                    <td>'.$movie->file_type.'</td>
-                                    <td>'.$movie->format.'</td>
-                                </tr>';
-                }
-                $content .= '<table>'; // Close table
-            } else {
-                echo('No movies found.');
-            }
-            
-            $content .= '<a class="button" href="index.php?view=movies_add">Add movie</a><br>
-                         <a class="button" href="index.php?view=movies_remove">Remove movie</a>';
             $content .= home_button();
             
         //Edit pages ->
