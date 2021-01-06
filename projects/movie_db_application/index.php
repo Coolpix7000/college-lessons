@@ -48,6 +48,9 @@
                         </form>
                         <a class="button">Reset password</a>
                         ';
+        } else if($_GET['view'] == 'failed_login') {
+            $content .= '<h2>Login failed</h2>
+                <a class="button" href="index.php?view=">Go back</a>';
         } else if($_GET['view'] == 'home') {
             $content .= '<h2>Home</h2>
                          <a class="button" href="index.php?view=view_users">View users</a><br>

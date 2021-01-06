@@ -9,17 +9,21 @@ switch($_GET['action']) {
         page_redirect('view_users');
         break;
     case 'login' :
-        //BROKEN - FIX IT
-        $redirect = check_login($connection, $_GET['name'],$_GET['pass']);
-        if($redirect == 'failed' && 1 == 0) {
-            page_redirect('failed_login');
-        } else if(!$redirect && 1 == 0) {
-            page_redirect('');
-        } else {
+        $redirect = check_login($connection, $_GET['user'], $_GET['pass']);
+        if($redirect == 'success') {
             page_redirect('home');
+        } else if($redirect == 'failed'){
+            page_redirect('failed_login');
         }
         break;
-        
+    case 'reset_password' :
+        $redirect = reset_login($connection, $_GET['user'], $_GET['pass']);
+        if($redirect == 'User updated sucessfully') {
+            page_redirect('home');
+        } else {
+            echo($redirect);
+        }
+        break;
         
 }
 

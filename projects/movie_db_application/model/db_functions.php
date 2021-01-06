@@ -46,22 +46,22 @@ function check_login($connection, $user, $pass) {
     $result = $connection->query($sql_to_run);
 
     $row = $result->fetch_assoc();
-    if($row->username == $user && $row->password == $pass) {
-        return('success');
-    } else {
-        return('failed');
-    }
+        if($row['username'] == $user && $row['password'] == $pass) {
+            return('success');
+        } else {
+            return('failed');
+        }
 }
 
 function reset_login($connection, $user, $pass) {
+    //fix this
     $sql_to_run = "INSERT INTO customers (username, password) VALUES ('$user','$pass')";
     $result = $connection->query($sql_to_run);
 
-    $row = $result->fetch_assoc();
-    if($row['username'] == $user && $row['password'] == $pass) {
-        return('success');
+    if($connection->query($sql_to_run) === true) {
+        return("User updated sucessfully");
     } else {
-        return('failed');
+        return("Error: ".$sql_to_run."<br>".$connection->error);
     }
 }
 
