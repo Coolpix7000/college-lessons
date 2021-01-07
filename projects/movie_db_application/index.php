@@ -13,7 +13,9 @@
         $content = '<h1>Movie database</h1>';
             
         if($_GET['view'] == '') {
-            $content .= '<h2>Login page</h2>
+            $content .= '<div class="title-bar">
+                            <h2>Login page</h2>
+                        </div>
                         <form action="actions/db_actions.php">
                             <input type="hidden" id="action" name="action" value="login">
                             <p>
@@ -53,40 +55,9 @@
                 <a class="button" href="index.php?view=">Go back</a>';
         } else if($_GET['view'] == 'home') {
             $content .= '<h2>Home</h2>
-                         <a class="button" href="index.php?view=view_users">View users</a><br>
+                         <a class="button" href="view/users.php">View users</a><br>
                          <a class="button" href="view/movies.php">View movies</a>';
         } else if($_GET['view'] == 'view_users') {
-            $content .= '<h2>Users</h2>
-                <form id="search_users" method="post" action="?view=view_users">
-                    Name: <input type="text" id="search" name="search" placeholder="Search name">
-                    <input type="submit" value="Search">
-                </form>
-                <br>';
-            $users = get_users($connection, $_POST['search']);
-            if($users) {
-                // Create table
-                 $content .= '<table border="1">
-                                <tr>   
-                                    <th>User ID</th>
-                                    <th>Name</th>
-                                    <th>Address</th>
-                                </tr>
-                             ';
-                foreach($users as $user) {
-                    $content .= '<tr>
-                                    <td>'.$user->id.'</td>
-                                    <td>'.$user->customer_name.'</td>
-                                    <td>'.$user->address.'</td>
-                                </tr>';
-                }
-                $content .= '<table>'; // Close table
-            } else {
-                echo('No users found.');
-            }
-           
-            $content .= '<a class="button" href="index.php?view=users_add">Add user</a><br>
-                         <a class="button" href="index.php?view=users_remove">Remove user</a>';
-            $content .= home_button();
             
         //Edit pages ->
         } else if($_GET['view'] == 'users_add') {

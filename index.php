@@ -143,7 +143,14 @@
             <br>
             <a href="week_nine/login.php">Login check</a>
             <br>
-            
+        </div>
+        <div class="columns col">
+            <h2>Week ten</h2>
+            <a href="week_ten/binary_decimal.php">Task - binary to decimal</a>
+            <br>
+            <a href="week_ten/.php"></a>
+            <br>
+
         </div>
         
         <div class="column">

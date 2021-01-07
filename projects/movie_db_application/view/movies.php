@@ -98,6 +98,7 @@
                 echo('No movie found.');
             }
             $content .= home_button();
+            $content .= '</div>'; // Close grid container
         }
            
         disconnect_database($connection);
