@@ -3,20 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<title>Movies database</title>
-    <?php include_once('../model/db_functions.php'); ?>
-    <?php include_once('../model/view_functions.php'); ?>
-    <link rel="stylesheet" type="text/css" href="../assets/css/foundation.css">
+    <?php include_once('model/db_functions.php'); ?>
+    <?php include_once('model/view_functions.php'); ?>
+    <link rel="stylesheet" type="text/css" href="assets/css/foundation.css">
 </head>
 <body>
 	<?php
         $connection = connect_database();
-    
+        $content = nav_bar('movies');
+
         if($_GET['view'] == '') {
             $genres = get_genres($connection);
             $content .= '
-                <div class="title-bar">
-                    <h2>Movies</h2>
-                </div>
                 <div class="grid-container">
                     <div class="">
                         <form id="search_movies" method="post" action="?">

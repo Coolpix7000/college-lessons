@@ -2,10 +2,10 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: db
--- Generation Time: Nov 26, 2020 at 04:34 PM
--- Server version: 10.5.8-MariaDB-1:10.5.8+maria~focal
--- PHP Version: 7.4.12
+-- Host: localhost
+-- Generation Time: Jan 14, 2021 at 02:30 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,6 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `customers` (
   `id` int(5) NOT NULL,
   `customer_name` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
   `address` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -37,11 +39,10 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `customer_name`, `address`) VALUES
-(1, 'John Smith', '1 High Street'),
-(2, 'Mary Jones', '14 Acacia Avenue'),
-(3, 'Johnny Smith', '23 Maple Drive'),
-(10, '', '');
+INSERT INTO `customers` (`id`, `customer_name`, `username`, `password`, `address`) VALUES
+(1, 'John Smith', 'js', 'password', '1 High Street'),
+(2, 'Mary Jones', 'mj', 'acacia1!', '14 Acacia Avenue'),
+(3, 'Johnny Smith', '', '', '23 Maple Drive');
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,8 @@ CREATE TABLE `genres` (
 INSERT INTO `genres` (`genre_id`, `genre`) VALUES
 (1, 'Comedy'),
 (2, 'Children'),
-(3, 'Sci-Fi');
+(3, 'Sci-Fi'),
+(4, 'Drama');
 
 -- --------------------------------------------------------
 
@@ -111,7 +113,8 @@ INSERT INTO `movies` (`id`, `title`, `genre_id`, `type_id`) VALUES
 (2, '22 Jump Street', 1, 1),
 (3, 'The Hunger Games', 3, 2),
 (4, 'Robocop', 3, 2),
-(5, 'How to Train Your Dragon', 2, 2);
+(5, 'How to Train Your Dragon', 2, 2),
+(6, 'Titanic', 4, 2);
 
 -- --------------------------------------------------------
 
@@ -187,13 +190,13 @@ ALTER TABLE `downloads`
 -- AUTO_INCREMENT for table `genres`
 --
 ALTER TABLE `genres`
-  MODIFY `genre_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `genre_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `video_formats`

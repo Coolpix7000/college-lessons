@@ -10,11 +10,12 @@
 <body>
 	<?php 
         $connection = connect_database();
-        $content = '<h1>Movie database</h1>';
-            
+        $content = nav_bar($_GET['view']);
+        $content .= '<div class="grid-container">';
         if($_GET['view'] == '') {
             $content .= '<div class="title-bar">
-                            <h2>Login page</h2>
+                            <h1>Movie database</h1>
+                            <h2>Login</h2>
                         </div>
                         <form action="actions/db_actions.php">
                             <input type="hidden" id="action" name="action" value="login">
@@ -54,9 +55,8 @@
             $content .= '<h2>Login failed</h2>
                 <a class="button" href="index.php?view=">Go back</a>';
         } else if($_GET['view'] == 'home') {
-            $content .= '<h2>Home</h2>
-                         <a class="button" href="view/users.php">View users</a><br>
-                         <a class="button" href="view/movies.php">View movies</a>';
+            $content .= '<a class="button" href="users.php">View users</a><br>
+                         <a class="button" href="movies.php">View movies</a>';
         } else if($_GET['view'] == 'view_users') {
             
         //Edit pages ->
@@ -86,6 +86,7 @@
             $content .= home_button();
             
         }
+        $content .= '</div>'; // Close grid container
         
             
         

@@ -148,11 +148,13 @@
             <h2>Week ten</h2>
             <a href="week_ten/binary_decimal.php">Task - binary to decimal</a>
             <br>
-            <a href="week_ten/.php"></a>
+        </div>
+		<div class="columns col">
+            <h2>Week eleven</h2>
+            <a href="week_eleven/natural_numbers.php">Task - binary to decimal</a>
             <br>
 
         </div>
-        
         <div class="column">
             <h2>Projects</h2>
             <a href="projects/movie_db_application/index.php">Movie application</a>

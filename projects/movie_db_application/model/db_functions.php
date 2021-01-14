@@ -1,6 +1,6 @@
 <?php
 function connect_database() {
-    $server_name = "mysql";
+    $server_name = "localhost";
     $username = "root";
     $password = "p4ssw0rd1";
     $db_name = "movies_db";

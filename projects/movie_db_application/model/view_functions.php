@@ -8,17 +8,15 @@ function home_button() {
     return('<br><a class="button" href="index.php?">Home</a>');
 }
 
-function page_header($page_title) {
-    $layout = '<div class="title-bar">
-                    <h2>'.$page_title.'</h2>
-                    <ul class="horizontal medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown">
-                        <li><a href="#">Item 1A</a></li>
-                        <li><a href="#">Item 1B</a></li>
-                        <li><a href="#">Item 1C</a></li>
-                        <li><a href="#">Item 1D</a></li>
-                        <li><a href="#">Item 1E</a></li>
+function nav_bar($page) {
+    $title = ucfirst($page);
+    $layout = '<nav class="top-bar" data-topbar role="navigation">
+                    <ul class="horizontal medium-horizontal menu">
+                        <li><a href="index.php?view=home" '.($title == 'Home' ? 'style="background: #969CA3;"' : '').'>Home</a></li>
+                        <li><a href="users.php" '.($title == 'Users' ? 'style="background: #969CA3;"' : '').'>Users</a></li>
+                        <li><a href="movies.php" '.($title == 'Movies' ? 'style="background: #969CA3;"' : '').'>Movies</a></li>
                     </ul>
-                </div>
+                </nav>
                 ';
 
     return $layout;

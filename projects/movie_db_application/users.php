@@ -3,22 +3,22 @@
 <head>
 	<meta charset="utf-8">
 	<title>Movies database</title>
-    <?php include_once('../model/db_functions.php'); ?>
-    <?php include_once('../model/view_functions.php'); ?>
-    <link rel="stylesheet" type="text/css" href="../assets/css/foundation.css">
+    <?php include_once('model/db_functions.php'); ?>
+    <?php include_once('model/view_functions.php'); ?>
+    <link rel="stylesheet" type="text/css" href="assets/css/foundation.css">
 </head>
 <body>
     <?php
         $connection = connect_database();
-        $content .= page_header('Users');
+        $content = nav_bar('users');
         $content .= '
                     <div class="grid-container">
-                        <form id="search_users" method="post" action="?view=view_users">
+                        <form id="search_users" method="get" action="?view=view_users">
                             Name: <input type="text" id="search" name="search" placeholder="Search name">
                             <input type="submit" value="Search">
                         </form>
                         <br>';
-        $users = get_users($connection, $_POST['search']);
+        $users = get_users($connection, $_GET['search']);
         if($users) {
             // Create table
                 $content .= '<table border="1">
