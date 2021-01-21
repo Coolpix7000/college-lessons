@@ -1,16 +1,15 @@
 <?php
 
-function back_button() {
-    
-}
-
 function home_button() {
-    return('<br><a class="button" href="index.php?">Home</a>');
+    return('<a class="button" href="index.php?view=home">Home</a>');
 }
 
-function nav_bar($page) {
+function title_nav_bar($page) {
     $title = ucfirst($page);
-    $layout = '<nav class="top-bar" data-topbar role="navigation">
+    $layout = ' <div class="title-bar">
+                    <h1>Movie database</h1>
+                </div>
+                <nav class="top-bar" data-topbar role="navigation">
                     <ul class="horizontal medium-horizontal menu">
                         <li><a href="index.php?view=home" '.($title == 'Home' ? 'style="background: #969CA3;"' : '').'>Home</a></li>
                         <li><a href="users.php" '.($title == 'Users' ? 'style="background: #969CA3;"' : '').'>Users</a></li>

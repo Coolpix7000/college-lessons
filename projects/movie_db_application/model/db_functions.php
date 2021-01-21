@@ -140,60 +140,56 @@ function get_genres($connection) {
     }
 }
 
-function insert_user($connection, $name, $address) {
-    $sql_to_run = "INSERT INTO customers (customer_name, address)
-                  VALUES('$name', '$address')";
+function insert_user($connection, $name, $uname, $pword, $address) {
+    $sql_to_run = "INSERT INTO customers (customer_name, username, password, address)
+                  VALUES('$name', '$uname', '$pword', '$address')";
     
     if($connection->query($sql_to_run) === true) {
         return("User created sucessfully");
+    } else {
+        echo("Error: ".$sql_to_run."<br>".$connection->error);
+        die();
+    }
+}
+
+function insert_movie($connection, $title, $genre_id, $type_id) {
+    $sql_to_run = "INSERT INTO movies (title, genre_id, type_id)
+                   VALUES('$title', '$genre_id', '$type_id')";
+    $result = $connection->query($sql_to_run);
+    
+    $movies_array = array();
+    
+    if($connection->query($sql_to_run) === true) {
+        return("Movie added sucessfully");
     } else {
         return("Error: ".$sql_to_run."<br>".$connection->error);
     }
 }
 
-// INCOMPLETE
-function insert_movie($connection, $search = '') {
-    $sql_to_run = "INSERT INTO movies";
-    $result = $connection->query($sql_to_run);
-    
-    $movies_array = array();
-    
-    if($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-             $movies_array[] = (object) array(
-                 'id' => $row["id"],
-                 'title' => $row["title"],
-                 'genre' => $row["genre"],
-                 'format' => $row["format"],
-                 'file_type' => $row["file_type"]
-             );
-        }
-        return $movies_array;
+function remove_user($connection, $name) {
 
-    } else {
-       return(false);
-    }
-}
-
-function delete_SOMETHING($connection) {
-
-    $sql_to_run = "DELETE FROM users WHERE username = 'Kelly'";
+    $sql_to_run = "DELETE FROM customers WHERE customer_name = '$name'";
     $result = $connection->query($sql_to_run);
 
     if($connection->query($sql_to_run) === true) {
-        echo("Record deleted sucessfullly");
+        return("User deleted sucessfullly");
     } else {
         echo("error: ".$sql_to_run."<br>".$connection->error);
+        die();
     }
 }
 
+function remove_movie($connection, $username) {
 
+    $sql_to_run = "DELETE FROM customers WHERE username = '$username'";
+    $result = $connection->query($sql_to_run);
 
-
-
-
-
-
+    if($connection->query($sql_to_run) === true) {
+        return("User deleted sucessfullly");
+    } else {
+        return("error: ".$sql_to_run."<br>".$connection->error);
+    }
+}
 
 
 

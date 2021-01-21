@@ -5,8 +5,20 @@ $connection = connect_database(); // Setup database connection
 
 switch($_GET['action']) {
     case 'add_customer' :
-        insert_user($connection, $_GET['name'],$_GET['address']);
-        page_redirect('view_users');
+        insert_user($connection, $_GET['name'], $_GET['uname'], $_GET['pword'], $_GET['address']);
+        page_redirect('users_add');
+        break;
+    case 'add_movie' :
+        insert_movie($connection, $_GET['title'], $_GET['genre_id'], $_GET['type_id']);
+        page_redirect('movies_add');
+        break;
+    case 'remove_user' :
+        remove_user($connection, $_GET['name']);
+        page_redirect('users_remove');
+        break;
+    case 'remove_movie' :
+        remove_movie($connection, $_GET['title']);
+        page_redirect('movies_remove');
         break;
     case 'login' :
         $redirect = check_login($connection, $_GET['user'], $_GET['pass']);

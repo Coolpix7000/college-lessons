@@ -8,16 +8,12 @@
     <link rel="stylesheet" type="text/css" href="assets/css/foundation.css">
 </head>
 <body>
-	<?php 
-        $connection = connect_database();
-        $content = nav_bar($_GET['view']);
+    <?php 
+        $view = $_GET['view'];
+        $content = title_nav_bar($view);
         $content .= '<div class="grid-container">';
-        if($_GET['view'] == '') {
-            $content .= '<div class="title-bar">
-                            <h1>Movie database</h1>
-                            <h2>Login</h2>
-                        </div>
-                        <form action="actions/db_actions.php">
+        if($view == '') {
+            $content .= '<form action="actions/db_actions.php">
                             <input type="hidden" id="action" name="action" value="login">
                             <p>
                                 Username:
@@ -33,7 +29,7 @@
                         </form>
                         <a class="button" href="index.php?view=reset_password">Reset password</a>
                         ';
-        } else if($_GET['view'] == 'reset_password') {
+        } else if($view == 'reset_password') {
             $content .= '<h2>Reset password</h2>
                         <form action="actions/db_actions.php">
                             <input type="hidden" id="action" name="action" value="reset_password">
@@ -51,49 +47,55 @@
                         </form>
                         <a class="button">Reset password</a>
                         ';
-        } else if($_GET['view'] == 'failed_login') {
+        } else if($view == 'failed_login') {
             $content .= '<h2>Login failed</h2>
                 <a class="button" href="index.php?view=">Go back</a>';
-        } else if($_GET['view'] == 'home') {
+        } else if($view == 'home') {
             $content .= '<a class="button" href="users.php">View users</a><br>
                          <a class="button" href="movies.php">View movies</a>';
-        } else if($_GET['view'] == 'view_users') {
+        } else if($view == 'view_users') {
             
         //Edit pages ->
-        } else if($_GET['view'] == 'users_add') {
+        } else if($view == 'users_add') {
             $content .= '<h2>Add users</h2>';
             $content .= '<form id="add_user" method="get" action="actions/db_actions.php">
                             <input type="hidden" id="action" name="action" value="add_customer">
                             Name:  <input type="text" id="name" name="name"><br>
+                            Username:  <input type="text" id="uname" name="uname"><br>
+                            Password:  <input type="text" id="pword" name="pword"><br>
                             Address:  <input type="text" id="address" name="address"><br>
-                            <input type="submit" value="Add user">
+                            <input type="submit" value="Add user" class="button">
                          </form>';
             $content .= home_button();
             
-        } else if($_GET['view'] == 'users_remove') {
+        } else if($view == 'users_remove') {
             $content .= '<h2>Remove users</h2>';
-            
+            $content .= '<form id="remove_user" method="get" action="actions/db_actions.php">
+                            <input type="hidden" id="action" name="action" value="remove_user">
+                            Name:  <input type="text" id="name" name="name"><br>
+                            <input type="submit" value="Remove user" class="button">
+                         </form>';
             $content .= home_button();
             
-        } else if($_GET['view'] == 'movies_add') {
+        } else if($view == 'movies_add') {
             $content .= '<h2>Add movies</h2>';
-            
+            $content .= '<form id="add_movie" method="get" action="actions/db_actions.php">
+                            <input type="hidden" id="action" name="action" value="add_movie">
+                            Title:  <input type="text" id="title" name="title"><br>
+                            Genre:  <input type="text" id="genre_id" name="genre_id"><br>
+                            Type:  <input type="text" id="type_id" name="type_id"><br>
+                            <input type="submit" value="Add movie" class="button">
+                         </form>';
             $content .= home_button();
             
-        } else if($_GET['view'] == 'movies_remove') {
+        } else if($view == 'movies_remove') {
             $content .= '<h2>Remove movies</h2>';
             
             $content .= home_button();
             
         }
         $content .= '</div>'; // Close grid container
-        
-            
-        
-            
-    
 
-        disconnect_database($connection);
         echo($content);
 	?>
 </body>

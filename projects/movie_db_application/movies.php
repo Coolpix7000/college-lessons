@@ -10,9 +10,22 @@
 <body>
 	<?php
         $connection = connect_database();
-        $content = nav_bar('movies');
+        $content = title_nav_bar('movies');
 
-        if($_GET['view'] == '') {
+        // Set $_GET variables
+        if(isset($_GET['view'])) $view = $_GET['view'];
+        else $view = '';
+
+        if(isset($_POST['search'])) $search = $_POST['search'];
+        else $search = '';
+        
+        if(isset($_GET['genre'])) $genre_search = $_GET['genre'];
+        else $genre_search = '';
+
+        if(isset($_GET['sort_by'])) $sort_by = $_GET['sort_by'];
+        else $sort_by = '';
+
+        if($view == '') {
             $genres = get_genres($connection);
             $content .= '
                 <div class="grid-container">
@@ -27,7 +40,7 @@
                                 <optgroup label="Genre">
                                     <option value="">All</option>';
                             foreach($genres as $genre) {
-                                $content .= '<option value="'.$genre->id.'" '.($genre->id == $_GET['genre']?'selected="selected"':'').'>'.$genre->genre.'</option>';
+                                $content .= '<option value="'.$genre->id.'" '.($genre->id == $genre_search?'selected="selected"':'').'>'.$genre->genre.'</option>';
                             }
                             $content .= '
                                 </optgroup>
@@ -35,7 +48,7 @@
                         Sort by: 
                             <select name="sort_by" id="sort_by" onchange="this.form.submit()">
                                 <option value="">All</option>
-                                <option value="downloads" '.($_GET['sort_by']=='downloads'?'selected="selected"':'').'>Downloads</option>
+                                <option value="downloads" '.($sort_by=='downloads'?'selected="selected"':'').'>Downloads</option>
                             </select>
                         </form>
                         <a class="button" onclick="window.location.href=(\'movies.php\')">Clear</a>
@@ -43,7 +56,7 @@
                     </div>
                 </div>
             <div class="grid-container">'; // Setup table area
-                $movies = get_movies($connection, $_POST['search'], $_GET['genre'], $_GET['sort_by']);
+                $movies = get_movies($connection, $search, $genre_search, $sort_by);
                 if($movies) {
                     // Create table
                     $content .= '<table border="1">
@@ -57,7 +70,7 @@
                         $content .= '<tr>
                                         <td>'.$movie->id.'</td>
                                         <td>'.$movie->title.'</td>
-                                        <td style="text-align: center;"><button onclick="window.location.href=(\'movies.php?view=movie&id='.$movie->id.'\')">View</button></td>
+                                        <td style="text-align: center;" ><a class="button small" href="movies.php?view=movie&id='.$movie->id.'">View</a></td>
                                     </tr>';
                     }
                     $content .= '</table>'; // Close table
@@ -80,7 +93,7 @@
                              </div>
                         </div>'; // Close table area
             
-        } else if($_GET['view'] == 'movie') {
+        } else if($view == 'movie') {
              $content .= '<h2>Movie information</h2>';
             $movie = get_movie($connection, $_GET['id']);
             if($movie) {

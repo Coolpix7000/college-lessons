@@ -153,6 +153,11 @@
             <h2>Week eleven</h2>
             <a href="week_eleven/natural_numbers.php">Task - binary to decimal</a>
             <br>
+        </div>
+        <div class="columns col">
+            <h2>Week twelve</h2>
+            <a href="week_twelve/lamp_check.php">Task - Lamp check</a>
+            <br>
 
         </div>
         <div class="column">
