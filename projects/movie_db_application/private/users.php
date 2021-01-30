@@ -9,6 +9,11 @@
 </head>
 <body>
     <?php
+        session_start();
+        if(!isset($_SESSION['loggedin'])) {
+            header('Location: ../index.html');
+            die();
+        }
         $connection = connect_database();
         $content = title_nav_bar('users');
         $content .= '<div class="grid-container">

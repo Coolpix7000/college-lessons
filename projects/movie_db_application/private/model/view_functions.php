@@ -11,10 +11,11 @@ function title_nav_bar($page) {
                 </div>
                 <nav class="top-bar" data-topbar role="navigation">
                     <ul class="horizontal medium-horizontal menu">
-                        <li><a href="index.php?view=home" '.($title == 'Home' ? 'style="background: #969CA3;"' : '').'>Home</a></li>
+                        <li><a href="home.php?view=home" '.($title == 'Home' ? 'style="background: #969CA3;"' : '').'>Home</a></li>
                         <li><a href="users.php" '.($title == 'Users' ? 'style="background: #969CA3;"' : '').'>Users</a></li>
                         <li><a href="movies.php" '.($title == 'Movies' ? 'style="background: #969CA3;"' : '').'>Movies</a></li>
                     </ul>
+                    <a class="button" href="../authenticate.php?action=logout"style="margin: auto 0">Log out</a>
                 </nav>
                 ';
 

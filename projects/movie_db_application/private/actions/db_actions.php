@@ -20,14 +20,6 @@ switch($_GET['action']) {
         remove_movie($connection, $_GET['title']);
         page_redirect('movies_remove');
         break;
-    case 'login' :
-        $redirect = check_login($connection, $_GET['user'], $_GET['pass']);
-        if($redirect == 'success') {
-            page_redirect('home');
-        } else if($redirect == 'failed'){
-            page_redirect('failed_login');
-        }
-        break;
     case 'reset_password' :
         $redirect = reset_login($connection, $_GET['user'], $_GET['pass']);
         if($redirect == 'User updated sucessfully') {

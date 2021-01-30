@@ -9,26 +9,16 @@
 </head>
 <body>
     <?php 
+        session_start();
+        if(!isset($_SESSION['loggedin'])) {
+            header('Location: ../index.html');
+            die();
+        }
         $view = $_GET['view'];
         $content = title_nav_bar($view);
         $content .= '<div class="grid-container">';
         if($view == '') {
-            $content .= '<form action="actions/db_actions.php">
-                            <input type="hidden" id="action" name="action" value="login">
-                            <p>
-                                Username:
-                                <input type="text" id="user" name="user"/>
-                            </p>
-                            <p>
-                                Password:
-                                <input type="password" id="pass" name="pass"/>
-                            </p>
-                            <p>
-                                <input type="submit" id="submit" value="Login" class="button">
-                            </p>
-                        </form>
-                        <a class="button" href="index.php?view=reset_password">Reset password</a>
-                        ';
+            header('Location: home.php?view=home');
         } else if($view == 'reset_password') {
             $content .= '<h2>Reset password</h2>
                         <form action="actions/db_actions.php">
@@ -49,7 +39,7 @@
                         ';
         } else if($view == 'failed_login') {
             $content .= '<h2>Login failed</h2>
-                <a class="button" href="index.php?view=">Go back</a>';
+                <a class="button" href="home.php?view=">Go back</a>';
         } else if($view == 'home') {
             $content .= '<a class="button" href="users.php">View users</a><br>
                          <a class="button" href="movies.php">View movies</a>';

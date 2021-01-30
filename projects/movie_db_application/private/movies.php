@@ -8,7 +8,12 @@
     <link rel="stylesheet" type="text/css" href="assets/css/foundation.css">
 </head>
 <body>
-	<?php
+    <?php
+        session_start();
+        if(!isset($_SESSION['loggedin'])) {
+            header('Location: ../index.html');
+            die();
+        }
         $connection = connect_database();
         $content = title_nav_bar('movies');
 
