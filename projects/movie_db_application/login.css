@@ -46,7 +46,7 @@ body {
 .login form input[type="submit"] {
     width: 100%;
     padding: 15px;
-   margin-top: 20px;
+    margin-top: 20px;
     background-color: #3274d6;
     border: 0;
     cursor: pointer;
@@ -59,8 +59,18 @@ body {
     transition: background-color 0.2s;
 }
 
-.reset_login {
-    position: relative;
-    color: #435165;
+.login .reset_login {
     text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 15px;
+    background-color: #669ae7;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    transition: background-color 0.2s;
+}
+.login .reset_login:hover {
+  background-color: #5381c5;
 }

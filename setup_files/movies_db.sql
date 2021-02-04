@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 14, 2021 at 02:30 PM
+-- Generation Time: Feb 04, 2021 at 04:28 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.13
 
@@ -43,6 +43,18 @@ INSERT INTO `customers` (`id`, `customer_name`, `username`, `password`, `address
 (1, 'John Smith', 'js', 'password', '1 High Street'),
 (2, 'Mary Jones', 'mj', 'acacia1!', '14 Acacia Avenue'),
 (3, 'Johnny Smith', '', '', '23 Maple Drive');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer_reset_requests`
+--
+
+CREATE TABLE `customer_reset_requests` (
+  `request_id` int(5) NOT NULL,
+  `customer_id` int(5) NOT NULL,
+  `token` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -114,7 +126,8 @@ INSERT INTO `movies` (`id`, `title`, `genre_id`, `type_id`) VALUES
 (3, 'The Hunger Games', 3, 2),
 (4, 'Robocop', 3, 2),
 (5, 'How to Train Your Dragon', 2, 2),
-(6, 'Titanic', 4, 2);
+(6, 'Titanic', 4, 2),
+(7, 'Bridget Jones Diary', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -145,6 +158,12 @@ INSERT INTO `video_formats` (`type_id`, `format`, `file_type`) VALUES
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `customer_reset_requests`
+--
+ALTER TABLE `customer_reset_requests`
+  ADD PRIMARY KEY (`request_id`);
 
 --
 -- Indexes for table `downloads`
@@ -178,7 +197,13 @@ ALTER TABLE `video_formats`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `customer_reset_requests`
+--
+ALTER TABLE `customer_reset_requests`
+  MODIFY `request_id` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `downloads`
@@ -196,7 +221,7 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `video_formats`

@@ -20,20 +20,12 @@ switch($_GET['action']) {
         remove_movie($connection, $_GET['title']);
         page_redirect('movies_remove');
         break;
-    case 'reset_password' :
-        $redirect = reset_login($connection, $_GET['user'], $_GET['pass']);
-        if($redirect == 'User updated sucessfully') {
-            page_redirect('home');
-        } else {
-            echo($redirect);
-        }
-        break;
         
 }
 
 function page_redirect($view, $action = '') {
     header("Location: ../index.php?view=$view");
-    return true; //Make message appear dependant on action
+    return true; // Make message appear dependant on action
 }
 
 ?>

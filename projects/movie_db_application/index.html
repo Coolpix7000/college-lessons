@@ -9,7 +9,7 @@
     <body>
         <div class="login">
 			<h1>Login</h1>
-			<form action="authenticate.php" method="post">
+			<form action="authenticate.php?action=login" method="post">
 				<label for="username">
 					<i class="fas fa-user"></i>
 				</label>
@@ -19,8 +19,9 @@
 				</label>
 				<input type="password" name="password" placeholder="Password" id="password" required>
 				<input type="submit" value="Login">
+				<a class="reset_login" href="reset_password.php?view=request">Reset password</a>
             </form>
-            <a class="reset_login" href="index.php?view=reset_password">Reset password</a>
+          
 		</div>
     </body>
 </html>

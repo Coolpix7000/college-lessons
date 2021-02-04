@@ -158,7 +158,11 @@
             <h2>Week twelve</h2>
             <a href="week_twelve/lamp_check.php">Task - Lamp check</a>
             <br>
-
+        </div>
+        <div class="columns col">
+            <h2>Week fourteen</h2>
+            <a href="week_fourteen/pay_calculator.php">Task - Pay calculator</a>
+            <br>
         </div>
         <div class="column">
             <h2>Projects</h2>

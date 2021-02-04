@@ -53,17 +53,6 @@ function check_login($connection, $user, $pass) {
         }
 }
 
-function reset_login($connection, $user, $pass) {
-    //fix this
-    $sql_to_run = "INSERT INTO customers (username, password) VALUES ('$user','$pass')";
-    $result = $connection->query($sql_to_run);
-
-    if($connection->query($sql_to_run) === true) {
-        return("User updated sucessfully");
-    } else {
-        return("Error: ".$sql_to_run."<br>".$connection->error);
-    }
-}
 
 function get_movies($connection, $search = '', $genre = '', $sort_by = '') {
     if($genre) $and = 'AND genres.genre_id = '.$genre;
