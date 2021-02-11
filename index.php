@@ -164,6 +164,11 @@
             <a href="week_fourteen/pay_calculator.php">Task - Pay calculator</a>
             <br>
         </div>
+        <div class="columns col">
+            <h2>Week fifteen</h2>
+            <a href="week_fifteen/hashing_algorithm.php">Hashing algorithm</a>
+            <br>
+        </div>
         <div class="column">
             <h2>Projects</h2>
             <a href="projects/movie_db_application/index.php">Movie application</a>
