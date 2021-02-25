@@ -8,14 +8,14 @@
 </head>
 <body>
    <?php
-        error_reporting(E_ALL ^ E_WARNING); // Stop GET and POST errors
+        // THIS IS STILL BROKEN
         /*
         Hashing example tutorials:
         https://alexwebdevelop.com/php-password-hashing/
 
         */
         $server_name = "localhost";
-        $username = "root";
+        $username = "matthew";
         $password = "p4ssw0rd1";
         $db_name = "hashing_passwords";
 
@@ -28,18 +28,22 @@
 
         $content = '<form method="post" action="?hash=true">
                         Username: <input type="text" id="username" length="15" /><br>
-                        Password (numerical): <input type="password" id="password length="15" />
+                        Password: <input type="password" id="password length="15" />
                         <input type="submit" value="Go" />
                     </form>';
 
         $username = $_POST['username'];
         $password = $_POST['password'];
         
+        $hash = password_hash($password, PASSWORD_DEFAULT, 10);
+        var_dump($hash);
+        die();
+
         //Algorithm
         if($_GET['hash'] == true) {
         
             // Run SQL - insecure
-            $sql_to_run = "INSERT INTO simple_hash (index, key, username) VALUES ($index, $hash, $username)";
+            $sql_to_run = "INSERT INTO users (username, password, salt) VALUES ($username, $hash, $salt)";
 
             if($connection->query($sql_to_run) === true) {
                 $content .= '<br><br>Executed sucessfully';
